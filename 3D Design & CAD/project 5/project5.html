@@ -120,10 +120,16 @@
   }
 
   .video-stack {
-    margin-bottom: 48px;
+    margin-bottom: 4px;
     opacity: 0; animation: fadeUp 0.7s 0.25s forwards;
     display: flex; flex-direction: column; gap: 4px;
   }
+
+  .media-stack {
+    margin-bottom: 48px;
+    display: flex; flex-direction: column; gap: 4px;
+  }
+
   .video-item {
     background: var(--panel);
     border: 1px solid var(--border);
@@ -135,6 +141,25 @@
   }
   .video-item video {
     width: 100%; max-height: 480px; background: #000; display: block;
+  }
+
+  /* Photo item */
+  .photo-item {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    position: relative;
+    opacity: 0; animation: fadeUp 0.7s 0.28s forwards;
+  }
+  .photo-item-label {
+    font-family: 'DM Mono'; font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--cyan); padding: 12px 16px; border-bottom: 1px solid var(--border);
+  }
+  .photo-item img {
+    width: 100%;
+    max-height: 520px;
+    object-fit: contain;
+    display: block;
+    background: #000;
   }
 
   .overview-section {
@@ -178,12 +203,14 @@
     .modal-nav { flex-direction: column; gap: 16px; align-items: stretch; }
     .modal-nav-btn { text-align: center; }
     .video-item video { max-height: 260px; }
+    .photo-item img { max-height: 300px; }
   }
 
   @media (max-width: 480px) {
     .main-content { padding: 0 16px 60px; }
     .modal-nav-btn { padding: 12px 16px; font-size: 10px; }
     .video-item video { max-height: 200px; }
+    .photo-item img { max-height: 220px; }
   }
 </style>
 </head>
@@ -212,15 +239,37 @@
     <div class="modal-project-tag">3D Design &amp; CAD</div>
     <div class="modal-title">EMO Robot<br>Design</div>
 
-    <!-- VIDEO STACK -->
-    <div class="video-stack">
-      <div class="video-item">
-        <div class="video-item-label">Assembly Video 1</div>
-        <video controls>
-          <source src="assembly video 1.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
+    <!-- MEDIA STACK: Videos + Photo -->
+    <div class="media-stack">
+
+      <!-- Assembly Video 1 -->
+      <div class="video-stack">
+        <div class="video-item">
+          <div class="video-item-label">Assembly Video 1</div>
+          <video controls>
+            <source src="assembly video 1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
       </div>
+
+      <!-- Real Video 1 -->
+      <div class="video-stack">
+        <div class="video-item">
+          <div class="video-item-label">Real Video 1</div>
+          <video controls>
+            <source src="real video 1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <!-- Real Photo -->
+      <div class="photo-item">
+        <div class="photo-item-label">Photo 1</div>
+        <img src="photo 1.jpg" alt="EMO Robot — real photo" loading="lazy">
+      </div>
+
     </div>
 
     <!-- PROJECT OVERVIEW -->
